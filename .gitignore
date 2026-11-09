@@ -1,0 +1,23 @@
+# Python virtual environment
+.venv/
+venv/
+ENV/
+
+# Python execution caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Package build & distribution artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Temporary HTML visual reports generated during testing
+*.html
+
+# IDE configuration files
+.vscode/
+.idea/

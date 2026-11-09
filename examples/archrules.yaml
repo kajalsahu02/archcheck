@@ -1,0 +1,18 @@
+# rules:
+#   - name: "Demo script cannot import app.database directly"
+#     from: "demo"
+#     cannot_import: "app.database"
+
+#   - name: "No circular dependencies allowed"
+#     type: "no_cycles"
+
+#   - name: "Maximum 5 dependencies per module"
+#     type: "max_fan_out"
+#     limit: 5
+rules:
+  - name: "No circular dependencies allowed"
+    type: "no_cycles"
+
+  - name: "Limit maximum dependencies per module"
+    type: "max_fan_out"
+    limit: 10
