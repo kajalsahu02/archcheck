@@ -1,27 +1,41 @@
-# 🔍 ArchCheck
+ArchCheck
 
-> **Lightweight Python Architecture Linter & Dependency Mapper**
+ArchCheck is a lightweight Python tool that analyzes project dependencies and helps identify architectural issues in Python codebases.
+It builds dependency graphs, detects circular dependencies, and checks architectural rules defined in a YAML configuration file.
 
-ArchCheck is an open-source CLI tool and static analyzer that parses Python codebases into directed graphs to detect circular dependencies, analyze module coupling metrics, export interactive visual dependency graphs, and enforce architectural constraints in CI/CD pipelines.
+Features
 
----
+Extracts imports from Python files.
+Builds an interactive dependency graph.
+Detects circular dependencies.
+Generates HTML reports.
+Checks architectural rules using YAML configuration.
 
-## ✨ Core Features
+Tech Stack
+Python, Typer, NetworkX, PyYAML, PyVis, Rich.
 
-* 🚀 **AST Import Parsing:** Extracts raw Python imports and standard library boundaries using Python's built-in `ast` module.
-* 🕸️ **Dependency Graph Engine:** Built on `networkx` to run cycle detection (`simple_cycles`) and calculate coupling metrics (`fan-in`, `fan-out`).
-* 📊 **Interactive HTML Graphs:** Renders searchable, color-coded dependency node graphs powered by `pyvis`.
-* 🛡️ **YAML Rules Engine:** Enforces modular boundaries via custom `archrules.yaml` constraints (`cannot_import`, `no_cycles`, `max_fan_out`).
-* ⚡ **CI/CD Integration:** Integrates into GitHub Actions to automatically fail PRs that break project architecture.
+Installation
 
----
-
-## 🛠️ Installation
-
-```bash
-# Clone repository
-git clone [https://github.com/your-username/archcheck.git](https://github.com/your-username/archcheck.git)
+git clone https://github.com/kajalsahu02/archcheck.git
 cd archcheck
 
-# Install in editable development mode
-pip install -e .[dev]
+python -m venv .venv
+.venv\Scripts\activate
+
+pip install -e .
+
+Usage
+
+Analyze a project:
+archcheck analyze path/to/project
+Generates an interactive HTML dependency graph and displays analysis in the terminal.
+
+Check architectural rules:
+archcheck check path/to/project --config examples/archrules.yaml
+Checks the project against the rules defined in the YAML file and reports any violations.
+
+Run Tests
+pytest
+
+License
+MIT
